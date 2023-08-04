@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Fragment } from "react";
 import ProfilePic from "./profilePic.png";
+import navLogo from "./navlogo.png";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Feed", href: "#" },
-  //   { name: "Projects", href: "#" },
+  { name: "Profile", href: "/profile" },
   //   { name: "Calendar", href: "#" },
 ];
 
@@ -40,7 +41,7 @@ export default function Example() {
                 <div className="flex flex-shrink-0 items-center">
                   <Image
                     className="h-8 w-auto"
-                    src={ProfilePic}
+                    src={navLogo}
                     alt="Your Company"
                   />
                 </div>
