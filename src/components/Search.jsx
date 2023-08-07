@@ -25,8 +25,8 @@ function valuetext(value) {
 
 export default function Search() {
   const [chips, setChips] = useState([]);
-  const [stars, setStars] = useState([123450, 226322]);
-  const [forks, setForks] = useState([20000, 226322]);
+  const [stars, setStars] = useState([100, 226322]);
+  const [forks, setForks] = useState([200, 226322]);
   const [language, setLanguage] = useState("");
   const [selectedSearchType, setSelectedSearchType] = useState("lazy");
   const [data, setData] = useState("dummy");
