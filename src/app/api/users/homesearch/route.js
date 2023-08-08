@@ -16,12 +16,14 @@ export async function POST(NextRequest) {
     const chipsWithCustomSeparator = chips.join(customSeparator);
 
     let query = `https://api.github.com/search/repositories?q=language:${language} ${chipsWithCustomSeparator} stars:${stars[0]}..${stars[1]} forks:${forks[0]}..${forks[1]} &sort=forks&order=desc&per_page=100&page=1`;
+    const dummyDuery =
+      "https://api.github.com/search/repositories?q=language:typescript react and vue stars:>20000 &sort=stars&order=desc&per_page=100&page=1&=";
 
     // query to github
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: query,
+      url: dummyDuery,
       headers: {},
     };
 

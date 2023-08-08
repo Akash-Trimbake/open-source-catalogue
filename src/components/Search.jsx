@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
+import Card from "./Card";
 
 import Chip from "@mui/material/Chip";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -29,10 +30,7 @@ export default function Search() {
   const [forks, setForks] = useState([200, 226322]);
   const [language, setLanguage] = useState("");
   const [selectedSearchType, setSelectedSearchType] = useState("lazy");
-  const [data, setData] = useState("dummy");
-  const token = "token";
-  const query =
-    "https://api.github.com/search/repositories?q=language:typescript react and vue stars:>20000 &sort=stars&order=desc&per_page=100&page=1&=";
+  const [data, setData] = useState([]);
 
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
@@ -76,7 +74,8 @@ export default function Search() {
         forks,
       });
 
-      console.log(response.data);
+      console.log(response.data.items);
+      setData(response.data.items);
     } catch (error) {
       console.log("Error at home client :", error.message);
     }
@@ -195,17 +194,35 @@ export default function Search() {
               getAriaValueText={valuetext}
               max={226322} // Set the maximum range
             />
-            <button
-              onClick={() => {
-                console.log(forks, stars, chips, language, selectedSearchType);
-              }}
-            >
-              view count
-            </button>
           </Box>
         </div>
       </div>
-      <button onClick={getSearchData}>show search data</button>
+      <div className="flex justify-center items-center">
+        <button
+          onClick={getSearchData}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Show search data
+        </button>
+      </div>
+      <p className="m-2">{data && `${data.length} results found :`}</p>
+      <div className="grid grid-flow-row gap-4 grid-cols-1 md:grid-cols-2">
+        {data &&
+          data.map((item) => (
+            <Card
+              key={item.name}
+              name={item.name}
+              homepage={item.homepage}
+              git_url={item.svn_url}
+              topics={item.topics}
+              stars={item.stargazers_count}
+              owner={item.owner.login}
+              img={item.owner.avatar_url}
+              forks={item.forks_count}
+              description={item.description}
+            />
+          ))}
+      </div>
     </div>
   );
 }
