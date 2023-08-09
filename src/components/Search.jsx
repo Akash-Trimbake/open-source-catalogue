@@ -83,7 +83,7 @@ export default function Search() {
 
   // ............................................................................................................
   return (
-    <div>
+    <div className="">
       <div className="mt-10 w-full ">
         <Autocomplete
           multiple
@@ -215,10 +215,11 @@ export default function Search() {
               homepage={item.homepage}
               git_url={item.svn_url}
               topics={item.topics}
-              stars={item.stargazers_count}
+              stars={formatNumberToK(item.stargazers_count)}
               owner={item.owner.login}
               img={item.owner.avatar_url}
-              forks={item.forks_count}
+              forks={formatNumberToK(item.forks_count)}
+              openIssues={formatNumberToK(item.open_issues_count)}
               description={item.description}
             />
           ))}
