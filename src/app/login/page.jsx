@@ -31,7 +31,7 @@ export default function LoginPage() {
     try {
       const response = await axios.post("/api/users/login", user);
       console.log("Login Sucess!", response.data);
-      router.push("/profile");
+      router.push("/profile/one");
     } catch (error) {
       console.log("login failed!!!!", error.message);
     }

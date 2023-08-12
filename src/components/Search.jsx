@@ -114,7 +114,7 @@ export default function Search() {
               {...params}
               variant="outlined"
               label="Add Keywords"
-              placeholder="Add Keywords"
+              placeholder="Press enter to add more keywords"
             />
           )}
         />
@@ -166,7 +166,7 @@ export default function Search() {
           </FormControl>
         </div>
 
-        <div className="flex flex-col sm:flex-row">
+        <div className="flex flex-col md:flex-row md:justify-between">
           <Box className="w-70 sm:w-96 mx-3 mt-12">
             <Typography variant="p" gutterBottom>
               Stars:
@@ -205,7 +205,8 @@ export default function Search() {
           Show search data
         </button>
       </div>
-      <p className="m-2">{data && `${data.length} results found :`}</p>
+
+      {data.length > 0 && <p className="m-2">{data.length} results found :</p>}
       <div className="grid grid-flow-row gap-4 grid-cols-1 md:grid-cols-2">
         {data &&
           data.map((item) => (

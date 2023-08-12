@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Chip from "@mui/material/Chip";
 import Star from "./images/star.svg";
-import Heart from "./images/heart.svg";
-import HeartFill from "./images/heartFill.svg";
+import Bookmark from "./images/bookmark.svg";
+import BookmarkFill from "./images/bookmarkFill.svg";
 import Fork from "./images/fork.svg";
 import OpenIssues from "./images/openIssue.svg";
 function Card(props) {
@@ -37,24 +37,29 @@ function Card(props) {
         </div>
         <Image
           onClick={() => getWishlistData()}
-          src={like ? HeartFill : Heart}
+          src={like ? BookmarkFill : Bookmark}
           alt="Like"
           width={24}
           height={24}
         />
       </div>
-      <div className="max-w-xs sm:max-w-md m-2">
-        <p className="text-sm ">{props.description.slice(0, 150) + "..."}</p>
+      <div className="max-w-xs sm:max-w-md m-2 ">
+        <p className="text-sm overflow-hidden">
+          {props.description ? props.description.slice(0, 100) + "..." : "..."}
+        </p>
       </div>
-      <div className="">
-        {props.topics.slice(0, 5).map((item, index) => (
-          <Chip
-            label={item}
-            size="small"
-            key={index}
-            className="text-blue-800 bg-sky-100 text-xs m-1"
-          />
-        ))}
+      <div className="overflow-auto">
+        {props.topics
+          .filter((item) => item.length < 15)
+          .slice(0, 5)
+          .map((item, index) => (
+            <Chip
+              label={item}
+              size="small"
+              key={index}
+              className="text-blue-800 bg-sky-100 text-xs m-1"
+            />
+          ))}
       </div>
       <div className="grid grid-flow-row gap-4 grid-cols-2 md:grid-cols-3">
         <div className="flex justify-center md:my-2 mx-2 p-1 bg-gray-50 border border-gray-300 rounded-lg">

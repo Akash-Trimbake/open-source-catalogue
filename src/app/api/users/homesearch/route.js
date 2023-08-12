@@ -23,7 +23,7 @@ export async function POST(NextRequest) {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: dummyDuery,
+      url: query,
       headers: {},
     };
 
