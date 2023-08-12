@@ -4,9 +4,7 @@ export default function UserProfile({ params }) {
       <span className="mt-10">
         <h1>Profile Page {params.id}</h1>
       </span>
-      <div className="mt-20">
-        <button>bookmarks</button>
-      </div>
+      <div className="mt-20"></div>
     </div>
   );
 }

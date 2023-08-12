@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 
+const bookmarkSchema = new mongoose.Schema({
+  email: String,
+  title: String,
+});
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -15,6 +20,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a password"],
   },
+
   isVerified: {
     type: Boolean,
     default: false,
@@ -23,6 +29,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  bookmarks: [bookmarkSchema],
   forgotPasswordToken: String,
   forgotPasswordTokenExpiry: Date,
   verifyToken: String,
