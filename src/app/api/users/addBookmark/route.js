@@ -17,23 +17,11 @@ export async function POST(NextRequest) {
     const user = await User.findOne({ email });
 
     if (!user) {
-      return NextResponse.json({ error: "Invalid token" }, { status: 400 });
+      return NextResponse.json({ error: "User not found" }, { status: 400 });
     }
 
-    // User.updateOne(
-    //   { _id: userId },
-    //   { $push: { bookmarks: newBookmark } },
-    //   function (err, result) {
-    //     if (err) {
-    //       console.error("Error updating user document:", err);
-    //     } else {
-    //       console.log("Bookmark added to user:", result);
-    //     }
-    //   }
-    // );
-
-    // Push the new bookmark into the user's bookmarks array
     user.bookmarks.push(newBookmark);
+    // user.bookmarks.pop(newBookmark);
     await user.save();
 
     // user.bookmark = newBookmark;

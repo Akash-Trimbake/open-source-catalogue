@@ -2,10 +2,10 @@ import { connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(NextRequest) {
+export async function POST(NextRequest) {
   try {
     const reqBody = await NextRequest.json();
-    const { email } = reqBody;
+    const { email, title } = reqBody;
 
     const user = await User.findOne({ email });
 
