@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 const bookmarkSchema = new mongoose.Schema({
   email: String,
   title: String,
+  stars: String,
+  forks: String,
+  openIssues: String,
 });
 
 const userSchema = new mongoose.Schema({

@@ -75,6 +75,9 @@ export default function Search() {
       });
 
       console.log(response.data.items);
+      if (response.data.items.length % 2 == 1) {
+        setData(response.data.items.pop());
+      }
       setData(response.data.items);
     } catch (error) {
       console.log("Error at home client :", error.message);
@@ -212,6 +215,7 @@ export default function Search() {
           data.map((item) => (
             <Card
               key={item.name}
+              full_name={item.full_name}
               name={item.name}
               homepage={item.homepage}
               git_url={item.svn_url}

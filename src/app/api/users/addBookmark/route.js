@@ -7,12 +7,15 @@ connect();
 export async function POST(NextRequest) {
   try {
     const reqBody = await NextRequest.json();
-    const { email, title } = reqBody;
+    const { email, title, stars, forks, openIssues } = reqBody;
 
     // console.log(reqBody);
 
     const newBookmark = {
       title,
+      stars,
+      forks,
+      openIssues,
     };
     const user = await User.findOne({ email });
 

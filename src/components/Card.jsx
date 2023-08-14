@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import Chip from "@mui/material/Chip";
@@ -9,10 +10,28 @@ import BookmarkFill from "./images/bookmarkFill.svg";
 import Fork from "./images/fork.svg";
 import OpenIssues from "./images/openIssue.svg";
 function Card(props) {
-  const [like, setLike] = useState(false);
+  const [bookmarkState, setBookmarkState] = useState(false);
+
+  const [bookmark, setBookmark] = useState({
+    email: "one@gmail.com",
+    title: props.full_name,
+    stars: props.stars,
+    forks: props.forks,
+    openIssues: props.openIssues,
+  });
 
   const getWishlistData = () => {
-    setLike(!like);
+    setBookmarkState(!bookmarkState);
+  };
+
+  const addBookmark = async () => {
+    try {
+      const response = await axios.post("/api/users/addBookmark", bookmark);
+      console.log("Bookmark Sucess!", response.data);
+      // setBookmark(response.data);
+    } catch (error) {
+      console.log("Bookmark failed!!!!", error.message);
+    }
   };
 
   return (
@@ -36,9 +55,12 @@ function Card(props) {
           </Link>
         </div>
         <Image
-          onClick={() => getWishlistData()}
-          src={like ? BookmarkFill : Bookmark}
-          alt="Like"
+          onClick={() => {
+            getWishlistData(), addBookmark();
+          }}
+          className="cursor-pointer"
+          src={bookmarkState ? BookmarkFill : Bookmark}
+          alt="Bookmark"
           width={24}
           height={24}
         />
