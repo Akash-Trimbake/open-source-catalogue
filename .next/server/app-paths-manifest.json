@@ -1,9 +1,7 @@
 {
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/feed/page": "app/feed/page.js",
+  "/(root)/page": "app/(root)/page.js",
+  "/(root)/feed/page": "app/(root)/feed/page.js",
+  "/api/users/trending/route": "app/api/users/trending/route.js",
   "/api/users/addBookmark/route": "app/api/users/addBookmark/route.js",
-  "/api/users/homesearch/route": "app/api/users/homesearch/route.js",
-  "/api/users/getBookmark/route": "app/api/users/getBookmark/route.js",
-  "/api/users/me/route": "app/api/users/me/route.js"
+  "/(auth)/sign-in/[[...sign-in]]/page": "app/(auth)/sign-in/[[...sign-in]]/page.js"
 }
