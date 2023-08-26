@@ -2,6 +2,8 @@ import { connect } from "@/dbConfig/dbConfig"; // Import database connection set
 import User from "@/models/userModel"; // Import the User model
 import { NextRequest, NextResponse } from "next/server"; // Import Next.js request and response utilities
 
+connect();
+
 export async function DELETE(request) {
   try {
     const reqBody = await request.json(); // Parse the JSON body of the request

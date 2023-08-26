@@ -80,15 +80,7 @@ export default function Feed() {
         <br />
         <button onClick={onSignup}>add user to mongo</button>
         <br />
-        <button
-          onClick={() =>
-            console.log(
-              isLoaded,
-              isSignedIn,
-              user.emailAddresses[0].emailAddress
-            )
-          }
-        >
+        <button onClick={() => console.log(isLoaded, isSignedIn, user)}>
           user
         </button>
       </div>
