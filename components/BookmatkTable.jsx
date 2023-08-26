@@ -28,7 +28,10 @@ function QuickSearchToolbar() {
   );
 }
 
-export default function BookmarkTable({ dummydata }) {
+export default function BookmarkTable() {
+  // Fetch data from local storage (replace this with your data retrieval logic)
+  const data = JSON.parse(localStorage.getItem("bookmarkData")) || [];
+
   const columns = [
     { field: "title", headerName: "Title", flex: 1 },
     { field: "stars", headerName: "Stars", flex: 1 },
@@ -48,7 +51,7 @@ export default function BookmarkTable({ dummydata }) {
   return (
     <Box sx={{ height: 400, width: 1 }}>
       <DataGrid
-        rows={dummydata}
+        rows={data.data.bookmarks} // Use fetched data here
         columns={columns}
         {...initialState}
         components={{

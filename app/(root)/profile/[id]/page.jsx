@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
-// import BookmarkTable from "@/components/BookmatkTable";
+import BookmarkTable from "@/components/BookmatkTable";
 
 export default function UserProfile({ params }) {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -21,6 +21,8 @@ export default function UserProfile({ params }) {
     try {
       const email = { email: "onlyforsave1@gmail.com" };
       const response = await axios.post("/api/users/getBookmark", email);
+      localStorage.setItem("bookmarkData", JSON.stringify(response));
+
       console.log("Bookmark fetch Sucess!", response.data);
       setData(response.data);
     } catch (error) {
@@ -73,13 +75,13 @@ export default function UserProfile({ params }) {
         </span>
       ) : null}
       <div className="mt-20">
-        {/* {isLoaded && isSignedIn && (
+        {isLoaded && isSignedIn && (
           <BookmarkTable
-            dummydata={dummydata}
-            // dummydata={dummydata.map((item) => ({ ...item, id: item._id }))}
-            // data={data.map((item) => ({ ...item, id: item._id }))}
+          // data={data}
+          // dummydata={dummydata.map((item) => ({ ...item, id: item._id }))}
+          // data={data.map((item) => ({ ...item, id: item._id }))}
           />
-        )} */}
+        )}
       </div>
     </div>
   );
