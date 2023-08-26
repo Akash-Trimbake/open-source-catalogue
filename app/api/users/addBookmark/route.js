@@ -7,11 +7,12 @@ connect();
 export async function POST(NextRequest) {
   try {
     const reqBody = await NextRequest.json();
-    const { email, title, stars, forks, openIssues } = reqBody;
+    const { id, email, title, stars, forks, openIssues } = reqBody;
 
     // console.log(reqBody);
 
     const newBookmark = {
+      id,
       title,
       stars,
       forks,
@@ -24,11 +25,7 @@ export async function POST(NextRequest) {
     }
 
     user.bookmarks.push(newBookmark);
-    // user.bookmarks.pop(newBookmark);
     await user.save();
-
-    // user.bookmark = newBookmark;
-    // await user.save();
 
     return NextResponse.json({
       message: "Bookmark added successfully!",

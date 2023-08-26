@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
-import BookmarkTable from "@/components/BookmatkTable";
+// import BookmarkTable from "@/components/BookmatkTable";
 
 export default function UserProfile({ params }) {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -19,7 +19,7 @@ export default function UserProfile({ params }) {
 
   const getBookmark = async () => {
     try {
-      const email = { email: user.emailAddresses[0].emailAddress };
+      const email = { email: "onlyforsave1@gmail.com" };
       const response = await axios.post("/api/users/getBookmark", email);
       console.log("Bookmark fetch Sucess!", response.data);
       setData(response.data);
@@ -34,28 +34,24 @@ export default function UserProfile({ params }) {
       stars: "63.7k",
       forks: "13.3k",
       openIssues: "10.1k",
-      id: "64e8aba4fcbc2e0d7a6fe8ff",
     },
     {
       title: "sindresorhus/awesome",
       stars: "266.7k",
       forks: "26.4k",
       openIssues: "61",
-      id: "64e8ac67fcbc2e0d7a6fe905",
     },
     {
       title: "EbookFoundation/free-programming-books",
       stars: "296.4k",
       forks: "57.0k",
       openIssues: "48",
-      id: "64e8ace5fcbc2e0d7a6fe90c",
     },
     {
       title: "public-apis/public-apis",
       stars: "252.9k",
       forks: "29.0k",
       openIssues: "183",
-      id: "64e8ae0afcbc2e0d7a6fe914",
     },
   ];
 
@@ -77,7 +73,13 @@ export default function UserProfile({ params }) {
         </span>
       ) : null}
       <div className="mt-20">
-        {isLoaded && isSignedIn && <BookmarkTable dummydata={dummydata} />}
+        {/* {isLoaded && isSignedIn && (
+          <BookmarkTable
+            dummydata={dummydata}
+            // dummydata={dummydata.map((item) => ({ ...item, id: item._id }))}
+            // data={data.map((item) => ({ ...item, id: item._id }))}
+          />
+        )} */}
       </div>
     </div>
   );

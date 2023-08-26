@@ -6,6 +6,7 @@ const bookmarkSchema = new mongoose.Schema({
   stars: String,
   forks: String,
   openIssues: String,
+  id: String,
 });
 
 const userSchema = new mongoose.Schema({

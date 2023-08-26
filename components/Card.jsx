@@ -18,6 +18,7 @@ function Card(props) {
     stars: props.stars,
     forks: props.forks,
     openIssues: props.openIssues,
+    id: props.id,
   });
 
   const getWishlistData = () => {

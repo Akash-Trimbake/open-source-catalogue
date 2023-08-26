@@ -72,6 +72,7 @@ export default function Home() {
               forks={formatNumberToK(item.forks_count)}
               openIssues={formatNumberToK(item.open_issues_count)}
               description={item.description}
+              id={item.id}
             />
           ))}
       </div>

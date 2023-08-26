@@ -1,6 +1,8 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/(root)/page": "app/(root)/page.js",
-  "/api/users/getBookmark/route": "app/api/users/getBookmark/route.js",
-  "/(root)/profile/[id]/page": "app/(root)/profile/[id]/page.js"
+  "/api/users/addBookmark/route": "app/api/users/addBookmark/route.js",
+  "/(root)/feed/page": "app/(root)/feed/page.js",
+  "/(root)/profile/[id]/page": "app/(root)/profile/[id]/page.js",
+  "/(auth)/sign-up/[[...sign-up]]/page": "app/(auth)/sign-up/[[...sign-up]]/page.js"
 }

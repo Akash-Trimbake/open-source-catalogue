@@ -214,6 +214,7 @@ export default function Search() {
         {data &&
           data.map((item) => (
             <Card
+              id={item.id}
               key={item.name}
               full_name={item.full_name}
               name={item.name}
