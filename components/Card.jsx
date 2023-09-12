@@ -36,7 +36,7 @@ function Card(props) {
   };
 
   return (
-    <div className="border border-gray-300 border-1 p-2 rounded-lg">
+    <div className="border border-gray-300 border-1 p-1 md:p-2 rounded-lg">
       <div className="flex justify-between">
         <div className="flex m-2">
           <Image
@@ -84,13 +84,13 @@ function Card(props) {
             />
           ))}
       </div>
-      <div className="grid grid-flow-row gap-4 grid-cols-2 md:grid-cols-3">
+      <div className="grid grid-flow-row gap-2 md:gap-4 grid-cols-2 md:grid-cols-3 my-2">
         <div className="flex justify-center md:my-2 mx-2 p-1 bg-gray-50 border border-gray-300 rounded-lg">
           <Image src={Star} alt="Github Stars:" width={16} height={16} />
           <p className="text-xs mt-0.5 mx-1 mr-2">
             {" "}
             Star{" "}
-            <span className="text-xs font-semibold bg-gray-200 py-0.5 px-2 rounded-full">
+            <span className="text-xs font-medium md:font-semibold bg-gray-200 py-0.5 px-2 rounded-full">
               {props.stars}
             </span>
           </p>
@@ -101,7 +101,7 @@ function Card(props) {
           <p className="text-xs mt-0.5 mx-1 mr-2">
             {" "}
             Fork{" "}
-            <span className="text-xs font-semibold bg-gray-200 py-0.5 px-2 rounded-full">
+            <span className="text-xs font-medium md:font-semibold bg-gray-200 py-0.5 px-2 rounded-full">
               {props.forks}
             </span>
           </p>
@@ -112,7 +112,7 @@ function Card(props) {
           <p className="text-xs mt-0.5 mx-0.5 md:mr-2">
             {" "}
             Issue{" "}
-            <span className="text-xs font-semibold bg-gray-200 py-0.5 px-2 rounded-full">
+            <span className="text-xs font-medium md:font-semibold bg-gray-200 py-0.5 px-2 rounded-full">
               {props.openIssues}
             </span>
           </p>

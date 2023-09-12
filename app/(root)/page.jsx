@@ -56,7 +56,7 @@ export default function Home() {
       {/* <UserButton afterSignOutUrl="/" /> */}
 
       {/* <button onClick={getTrendingData}>test</button> */}
-      <div className="grid grid-flow-row gap-4 grid-cols-1 md:grid-cols-2 w-3/4">
+      <div className="grid grid-flow-row gap-4 grid-cols-1 md:grid-cols-2 w-11/12 md:w-3/4 mt-4">
         {data &&
           data.map((item) => (
             <Card

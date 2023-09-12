@@ -1,6 +1,7 @@
 {
   "/(root)/page": "app/(root)/page.js",
+  "/api/users/homesearch/route": "app/api/users/homesearch/route.js",
   "/(root)/feed/page": "app/(root)/feed/page.js",
-  "/(root)/profile/[id]/page": "app/(root)/profile/[id]/page.js",
-  "/(auth)/sign-up/[[...sign-up]]/page": "app/(auth)/sign-up/[[...sign-up]]/page.js"
+  "/(root)/search/page": "app/(root)/search/page.js",
+  "/(root)/profile/[id]/page": "app/(root)/profile/[id]/page.js"
 }

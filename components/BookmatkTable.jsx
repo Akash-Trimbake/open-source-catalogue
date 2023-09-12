@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import {
   DataGrid,
@@ -51,7 +51,7 @@ export default function BookmarkTable() {
   return (
     <Box sx={{ height: 400, width: 1 }}>
       <DataGrid
-        rows={data.data.bookmarks} // Use fetched data here
+        rows={data.data?.bookmarks} // Use fetched data here
         columns={columns}
         {...initialState}
         components={{

@@ -86,8 +86,8 @@ export default function Search() {
 
   // ............................................................................................................
   return (
-    <div className="">
-      <div className="mt-10 w-full ">
+    <div>
+      <div className="mt-1 md:mt-10 w-full ">
         <Autocomplete
           multiple
           id="chip-input"
@@ -122,9 +122,9 @@ export default function Search() {
           )}
         />
       </div>
-      <div className="flex flex-col w-full ">
+      <div className="flex flex-col w-full mt-4">
         <div className="flex flex-col sm:flex-row justify-between">
-          <FormControl className="m-1 min-w-[50%]">
+          <FormControl className="m-1 w-full md:w-1/2 ">
             <InputLabel id="demo-simple-select-helper-label">
               Language
             </InputLabel>
@@ -170,7 +170,7 @@ export default function Search() {
         </div>
 
         <div className="flex flex-col md:flex-row md:justify-between">
-          <Box className="w-70 sm:w-96 mx-3 mt-12">
+          <Box className="w-70 sm:w-96 mx-3 mt-4 md:mt-12">
             <Typography variant="p" gutterBottom>
               Stars:
             </Typography>
@@ -184,7 +184,7 @@ export default function Search() {
               max={226322} // Set the maximum range
             />
           </Box>
-          <Box className="w-70 sm:w-96 mx-3 mt-12">
+          <Box className="w-70 sm:w-96 mx-3 mt-4 md:mt-12">
             <Typography variant="p" gutterBottom>
               Forks:
             </Typography>

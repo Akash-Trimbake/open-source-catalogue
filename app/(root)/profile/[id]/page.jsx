@@ -9,11 +9,11 @@ import BookmarkTable from "@/components/BookmatkTable";
 export default function UserProfile({ params }) {
   const { isLoaded, isSignedIn, user } = useUser();
 
-  useEffect(() => {
-    if (isLoaded && isSignedIn) {
-      getBookmark();
-    }
-  }, [isLoaded, isSignedIn]);
+  // useEffect(() => {
+  //   if (isLoaded && isSignedIn) {
+  //     getBookmark();
+  //   }
+  // }, [isLoaded, isSignedIn]);
 
   const [data, setData] = useState([]);
 
@@ -74,6 +74,7 @@ export default function UserProfile({ params }) {
           <br />
         </span>
       ) : null}
+      <button onClick={getBookmark}>bookmarks</button>
       <div className="mt-20">
         {isLoaded && isSignedIn && (
           <BookmarkTable
