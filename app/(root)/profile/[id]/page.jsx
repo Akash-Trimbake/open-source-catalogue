@@ -9,11 +9,11 @@ import BookmarkTable from "@/components/BookmatkTable";
 export default function UserProfile({ params }) {
   const { isLoaded, isSignedIn, user } = useUser();
 
-  // useEffect(() => {
-  //   if (isLoaded && isSignedIn) {
-  //     getBookmark();
-  //   }
-  // }, [isLoaded, isSignedIn]);
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
+      getBookmark();
+    }
+  }, [isLoaded, isSignedIn]);
 
   const [data, setData] = useState([]);
 
@@ -58,24 +58,27 @@ export default function UserProfile({ params }) {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       {isLoaded && isSignedIn ? (
-        <span className="mt-10">
+        <span className="mt-10 ">
           <Image
             src={user.imageUrl}
             alt={params.id}
-            width={75}
-            height={75}
+            width={100}
+            height={100}
             className="rounded-full"
           />
-          <h1>Hello {user.username}</h1>
-          <h1>Profile Page {params.id}</h1>
+          <h1 className="my-4 ">
+            Hello <b className="text-lg">{user.username}</b>
+          </h1>
+          {/* <h1>Profile Page {params.id}</h1>
           <button onClick={() => console.log(params)}>param</button>
+          <button onClick={() => console.log(user)}>user</button> */}
           <br />
         </span>
       ) : null}
-      <button onClick={getBookmark}>bookmarks</button>
-      <div className="mt-20">
+      {/* <button onClick={getBookmark}>bookmarks</button> */}
+      <div className="mt-4 w-full md:w-11/12 ">
         {isLoaded && isSignedIn && (
           <BookmarkTable
           // data={data}

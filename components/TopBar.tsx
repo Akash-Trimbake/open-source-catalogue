@@ -65,33 +65,12 @@ export default function TopBar() {
               key={link.label}
               className={` ${isActive && "bg-primary-500 "}`}
             >
-              <p className="text-light-1 max-lg:hidden">{link.label}</p>
+              <p className="text-light-1 max-lg:hidden ">{link.label}</p>
             </Link>
           );
         })}
         <UserButton afterSignOutUrl="/" />
       </div>
-
-      {/* <div className="flex items-center gap-1">
-        <div className="block md:hidden">
-          <SignedIn>
-            <SignOutButton>
-              <div className="flex cursor-pointer">
-                <Image src={ProfilePic} alt="logout" width={24} height={24} />
-              </div>
-            </SignOutButton>
-          </SignedIn>
-        </div>
-
-        <OrganizationSwitcher
-          appearance={{
-            baseTheme: dark,
-            elements: {
-              organizationSwitcherTrigger: "py-2 px-4",
-            },
-          }}
-        />
-      </div> */}
     </nav>
   );
 }

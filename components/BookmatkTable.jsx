@@ -12,8 +12,8 @@ function QuickSearchToolbar() {
   return (
     <Box
       sx={{
-        p: 0.5,
-        pb: 0,
+        p: 2,
+        pb: 0.5,
       }}
     >
       <GridToolbarQuickFilter
@@ -49,7 +49,7 @@ export default function BookmarkTable() {
   };
 
   return (
-    <Box sx={{ height: 400, width: 1 }}>
+    <Box sx={{ height: 400, width: "100%" }}>
       <DataGrid
         rows={data.data?.bookmarks} // Use fetched data here
         columns={columns}

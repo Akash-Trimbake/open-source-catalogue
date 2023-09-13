@@ -4,7 +4,7 @@ import "../globals.css";
 
 export const metadata = {
   title: "Open Source Catalogue",
-  description: "Your handy Open Source Catalogue",
+  description: "Your handy Open Source Catalogue.",
 };
 
 const inter = Inter({ subsets: ["latin"] });

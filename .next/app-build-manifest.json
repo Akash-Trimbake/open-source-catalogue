@@ -11,20 +11,10 @@
       "static/css/app/(root)/layout.css",
       "static/chunks/app/(root)/layout.js"
     ],
-    "/(root)/search/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/search/page.js"
-    ],
     "/(root)/profile/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(root)/profile/[id]/page.js"
-    ],
-    "/(root)/feed/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/feed/page.js"
     ]
   }
 }

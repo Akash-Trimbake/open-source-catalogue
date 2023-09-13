@@ -25,6 +25,9 @@ export default function Feed() {
   const addToBookmarks = {
     email: user.emailAddresses[0].emailAddress,
     title: "facebook/react-native-website",
+    stars: "63.7k",
+    forks: "13.3k",
+    openIssues: "10.1k",
   };
 
   const onSignup = async () => {
