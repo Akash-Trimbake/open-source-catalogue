@@ -4,10 +4,13 @@ import { UserButton } from "@clerk/nextjs";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Card from "@/components/Card";
+import { useUser } from "@clerk/nextjs";
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [bookmarkData, setBookmarkData] = useState([]);
+  const { isLoaded, isSignedIn, user } = useUser();
 
   function formatNumberToK(number) {
     if (number >= 1000) {
@@ -37,6 +40,40 @@ export default function Home() {
     }
   };
 
+  const onSignin = async () => {
+    try {
+      const addUser = {
+        email: user.primaryEmailAddress.emailAddress,
+        username: user.username,
+        image: user.imageUrl,
+      };
+
+      const response = await axios.post("/api/users/addUser", addUser);
+      console.log("Signin Sucess!", response.data);
+      // console.log(addUser);
+    } catch (error) {
+      console.log("Signup went wrong!!!!", error.message);
+    }
+  };
+
+  const getBookmark = async () => {
+    try {
+      // const email = { email: "onlyforsave1@gmail.com" };
+      const email = { email: user.primaryEmailAddress.emailAddress };
+      const response = await axios.post("/api/users/getBookmark", email);
+
+      setBookmarkData(response.data.bookmarks);
+
+      console.log("Bookmark fetch Sucess!", response.data);
+    } catch (error) {
+      console.log("Bookmark fetch failed!!!!", error.message);
+    }
+  };
+
+  // useEffect(() => {
+  //   getBookmark();
+  // }, [isLoaded, isSignedIn]);
+
   useEffect(() => {
     const storedData = localStorage.getItem("trendingData");
 
@@ -48,14 +85,24 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    if (user && isSignedIn) {
+      onSignin();
+      getBookmark();
+    }
+  }, []);
+  useEffect(() => {
     localStorage.setItem("trendingData", JSON.stringify(data));
   }, [data]);
+  useEffect(() => {
+    localStorage.setItem("bookmarkData", JSON.stringify(bookmarkData));
+  }, [bookmarkData]);
 
   return (
     <div className="flex flex-col items-center justify-center mt-20">
       {/* <UserButton afterSignOutUrl="/" /> */}
 
-      {/* <button onClick={getTrendingData}>test</button> */}
+      {/* <button onClick={() => console.log(user)}>user</button> */}
+      {/* <button onClick={onSignin}>add user</button> */}
       <div className="grid grid-flow-row gap-4 grid-cols-1 md:grid-cols-2 w-11/12 md:w-3/4 mt-4">
         {data &&
           data.map((item) => (
