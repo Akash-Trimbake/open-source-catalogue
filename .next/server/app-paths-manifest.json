@@ -1,9 +1,3 @@
 {
-  "/(root)/page": "app/(root)/page.js",
-  "/(root)/search/page": "app/(root)/search/page.js",
-  "/api/users/getBookmark/route": "app/api/users/getBookmark/route.js",
-  "/api/users/addUser/route": "app/api/users/addUser/route.js",
-  "/(auth)/signin/[[...signin]]/page": "app/(auth)/signin/[[...signin]]/page.js",
-  "/(root)/profile/[id]/page": "app/(root)/profile/[id]/page.js",
-  "/(auth)/signup/[[...signup]]/page": "app/(auth)/signup/[[...signup]]/page.js"
+  "/(root)/page": "app/(root)/page.js"
 }
